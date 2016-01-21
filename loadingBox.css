@@ -1,0 +1,2 @@
+.loadingBox {display:flex;flex-direction:row;margin: 20px auto;padding:0;}
+.loadingBox li{display:block;background:#ccc;border-radius:100%;}

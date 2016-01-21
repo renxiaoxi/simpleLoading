@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>Loading Box Demo</title>		
+		<link rel="stylesheet" href="loadingBox.css" type="text/css">
+		<script type="text/javascript" src="extend.js"></script>
+		<script type="text/javascript" src="loadingBox.js"></script>
+		<style>
+			.loadingBox{width:200px; height:200px;}
+		</style>
+	</head>
+	<body>
+		<button id="switchLoading">
+			Switch Loading
+		</button>
+
+		<script>
+		(function(){
+			var switcher = getDomById("switchLoading");
+			var isLoading = false;
+			var loadingExample = null;
+
+			initialSwitcher();
+			function initialSwitcher(){
+				if(!isLoading)
+					switcher.innerHTML = "show loading";
+			}
+			switcher.addEventListener("click",function(){
+				if(!isLoading){
+					isLoading = true;
+					this.innerHTML = "hide loading";
+					loadingExample = new loading({num:3,margin:"1px"});
+				}
+				else{
+					isLoading=false;
+					this.innerHTML = "show loading";
+					if(loadingExample)
+						loadingExample.remove();
+				}
+			},false)
+			//loading({num:3,margin:"1px"});
+		}())
+		</script>
+	</body>
+</html>
